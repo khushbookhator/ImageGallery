@@ -5,7 +5,7 @@ window.addEventListener("scroll", handleThrottling)
 
 
 async function getImageData(page = 0){
-    await fetch(`https://api.pexels.com/v1/curated?page=${1}&per_page=10`, {
+    await fetch(`https://api.pexels.com/v1/curated?page=${1}&per_page=20`, {
         headers: {
         Authorization:"563492ad6f91700001000001c2fd0f030839468791ccb6bef298c229"
         }
