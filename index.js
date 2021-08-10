@@ -5,20 +5,20 @@ window.addEventListener("scroll", handleThrottling)
 
 
 async function getImageData(page = 0){
-    await fetch(`https://api.unsplash.com/photos?per_page=20&page=${page}`, {
+    await fetch(`https://api.pexels.com/v1/curated?page=${1}&per_page=10`, {
         headers: {
-            Authorization: "Client-ID LDECbaiK350yekxz9fFz3PbEmDLgQZHlguMfqy4pyhc"
+        Authorization:"563492ad6f91700001000001c2fd0f030839468791ccb6bef298c229"
         }
     })
     .then((res) => res.json())
-    .then((res) => setImageData(res))
+    .then((res) => setImageData(res.photos))
 }
 
 function setImageData(data){
     let html = ""
     let imgUrl
     for(let i=0; i<data.length; i++){
-        imgUrl = data[i]?.urls.thumb
+        imgUrl = data[i]?.src.portrait
         
         html+= `
         <div class="postsImg">
